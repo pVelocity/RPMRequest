@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:test.xcodeproj">
+      location = "self:/Users/kanglu/Documents/XCode Projects/test/RPMRequest.xcodeproj">
    </FileRef>
 </Workspace>

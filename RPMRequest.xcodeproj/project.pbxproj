@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5DC17701C50345600DE2AF4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DC176F1C50345600DE2AF4 /* main.swift */; };
+		A5B43A5A1C513D45009F9BCE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B43A591C513D45009F9BCE /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +23,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A5DC176C1C50345600DE2AF4 /* test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5DC176F1C50345600DE2AF4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A5B43A591C513D45009F9BCE /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = RPMRequest/main.swift; sourceTree = "<group>"; };
+		A5DC176C1C50345600DE2AF4 /* RPMRequest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RPMRequest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,10 +38,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5B43A5B1C513D66009F9BCE /* RPMRequest */ = {
+			isa = PBXGroup;
+			children = (
+				A5B43A591C513D45009F9BCE /* main.swift */,
+			);
+			name = RPMRequest;
+			sourceTree = "<group>";
+		};
 		A5DC17631C50345600DE2AF4 = {
 			isa = PBXGroup;
 			children = (
-				A5DC176E1C50345600DE2AF4 /* test */,
+				A5B43A5B1C513D66009F9BCE /* RPMRequest */,
 				A5DC176D1C50345600DE2AF4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,25 +57,17 @@
 		A5DC176D1C50345600DE2AF4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A5DC176C1C50345600DE2AF4 /* test */,
+				A5DC176C1C50345600DE2AF4 /* RPMRequest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A5DC176E1C50345600DE2AF4 /* test */ = {
-			isa = PBXGroup;
-			children = (
-				A5DC176F1C50345600DE2AF4 /* main.swift */,
-			);
-			path = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A5DC176B1C50345600DE2AF4 /* test */ = {
+		A5DC176B1C50345600DE2AF4 /* RPMRequest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A5DC17731C50345600DE2AF4 /* Build configuration list for PBXNativeTarget "test" */;
+			buildConfigurationList = A5DC17731C50345600DE2AF4 /* Build configuration list for PBXNativeTarget "RPMRequest" */;
 			buildPhases = (
 				A5DC17681C50345600DE2AF4 /* Sources */,
 				A5DC17691C50345600DE2AF4 /* Frameworks */,
@@ -77,9 +77,9 @@
 			);
 			dependencies = (
 			);
-			name = test;
+			name = RPMRequest;
 			productName = test;
-			productReference = A5DC176C1C50345600DE2AF4 /* test */;
+			productReference = A5DC176C1C50345600DE2AF4 /* RPMRequest */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -97,7 +97,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A5DC17671C50345600DE2AF4 /* Build configuration list for PBXProject "test" */;
+			buildConfigurationList = A5DC17671C50345600DE2AF4 /* Build configuration list for PBXProject "RPMRequest" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -109,7 +109,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A5DC176B1C50345600DE2AF4 /* test */,
+				A5DC176B1C50345600DE2AF4 /* RPMRequest */,
 			);
 		};
 /* End PBXProject section */
@@ -119,7 +119,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5DC17701C50345600DE2AF4 /* main.swift in Sources */,
+				A5B43A5A1C513D45009F9BCE /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,21 +209,21 @@
 		A5DC17741C50345600DE2AF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RPMRequest;
 			};
 			name = Debug;
 		};
 		A5DC17751C50345600DE2AF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RPMRequest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A5DC17671C50345600DE2AF4 /* Build configuration list for PBXProject "test" */ = {
+		A5DC17671C50345600DE2AF4 /* Build configuration list for PBXProject "RPMRequest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A5DC17711C50345600DE2AF4 /* Debug */,
@@ -232,13 +232,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A5DC17731C50345600DE2AF4 /* Build configuration list for PBXNativeTarget "test" */ = {
+		A5DC17731C50345600DE2AF4 /* Build configuration list for PBXNativeTarget "RPMRequest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A5DC17741C50345600DE2AF4 /* Debug */,
 				A5DC17751C50345600DE2AF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
