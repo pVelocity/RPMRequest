@@ -83,7 +83,7 @@ if numArgs != 4
     let task = sendRequest("http://goliath.pvelocity.com/PE/RPM")
     
     while(!done) {
-        NSRunLoop.mainRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: 1.0))
+        NSRunLoop.mainRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: 0.01))
     }
 }
 else
