@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A532D3151C52D81A0002E442 /* RPMAPISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532D3141C52D81A0002E442 /* RPMAPISession.swift */; };
 		A5B43A5A1C513D45009F9BCE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B43A591C513D45009F9BCE /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A532D3141C52D81A0002E442 /* RPMAPISession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RPMAPISession.swift; path = RPMRequest/RPMAPISession.swift; sourceTree = "<group>"; };
 		A5B43A591C513D45009F9BCE /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = RPMRequest/main.swift; sourceTree = "<group>"; };
 		A5DC176C1C50345600DE2AF4 /* RPMRequest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RPMRequest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -42,6 +44,7 @@
 			isa = PBXGroup;
 			children = (
 				A5B43A591C513D45009F9BCE /* main.swift */,
+				A532D3141C52D81A0002E442 /* RPMAPISession.swift */,
 			);
 			name = RPMRequest;
 			sourceTree = "<group>";
@@ -119,6 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A532D3151C52D81A0002E442 /* RPMAPISession.swift in Sources */,
 				A5B43A5A1C513D45009F9BCE /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
