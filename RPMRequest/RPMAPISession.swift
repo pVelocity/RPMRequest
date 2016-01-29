@@ -30,7 +30,9 @@ public class RPMAPISession
     let urlSessionConfig : NSURLSessionConfiguration
     let urlSession : NSURLSession
     
-    init(hostURL: String) {
+    /// Must initialized with a valid host URL to the pVelocity engine
+    ///
+    public init(hostURL: String) {
         self.concurrentQueue = NSOperationQueue()
         self.concurrentQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount
         self.concurrentQueue.qualityOfService = NSQualityOfService.Background
