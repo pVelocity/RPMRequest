@@ -150,6 +150,20 @@ public class RPMAPISession
         return task
     }
     
+    public func login(user user: String, passwd: String) -> NSURLSessionTask
+    {
+        
+        let loginReq =  PVRequest.Operation("Login",
+            PVRequestParam.Collection(
+                params: [
+                    PVRequestParam.Element(attr: "User", value: user),
+                    PVRequestParam.Element(attr: "Password", value: passwd)
+                ]
+            ))
+        
+        return rpm.sendRequest(loginReq)
+    }
+    
     public func awaitCompletion() -> Void
     {
         NSRunLoop.mainRunLoop().runUntilDate(NSDate(timeIntervalSinceNow: 2.0))

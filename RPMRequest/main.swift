@@ -10,33 +10,50 @@ import Foundation
 
 let numArgs = Process.arguments.count
 let progname = NSURL.fileURLWithPath(Process.arguments[0]).lastPathComponent
+let engineURL = "http://goliath.pvelocity.com"
 
-if numArgs != 4
-{
-    print ("Usage \(progname!): filename")
+let rpm = RPMAPISession(hostURL: engineURL)
+
+public class Main {
+
+    private(set) lazy var user: String = {return Process.arguments[1]}()
+    private(set) lazy var passwd: String = {return Process.arguments[2]}()
     
-    let loginReq =  PVRequest.Operation("Login",
-        PVRequestParam.Collection(
-            params: [
-                PVRequestParam.Element(attr: "User", value: "Admin"),
-                PVRequestParam.Element(attr: "Password", value: "psa")
-            ]
-        ))
-    
-    let rpm = RPMAPISession(hostURL: "http://goliath.pvelocity.com")
-    
-    for i in 0..<1
-    {
-        let task = rpm.sendRequest(loginReq)
+    public static func run() {
+        
+        let mainInst = Main();
+        
+        switch numArgs {
+            
+        case 3:
+            
+            rpm.login(user: mainInst.user, passwd: mainInst.passwd)
+            rpm.awaitCompletion()
+
+            
+        case 4:
+
+            rpm.login(user: mainInst.user, passwd: mainInst.passwd)
+            
+            let filename = Process.arguments[1]
+            let fileManager = NSFileManager.defaultManager()
+            
+            let curPath = NSURL.fileURLWithPath(fileManager.currentDirectoryPath)
+            let filePath = curPath.URLByAppendingPathComponent(filename)
+            
+            print ("Uploading file: \(filePath)")
+            
+            rpm.awaitCompletion()
+
+            
+        default:
+            
+            print ("Usage \(progname!): user password [filename]")
+            
+        }
+        
     }
-    
-    rpm.awaitCompletion()
 }
-else
-{
-    let filename = Process.arguments[1]
-    let fileManager = NSFileManager.defaultManager()
-    
-    let curPath = NSURL.fileURLWithPath(fileManager.currentDirectoryPath)
-    let filePath = curPath.URLByAppendingPathComponent(filename)
-}
+
+
+Main.run()
