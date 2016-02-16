@@ -18,6 +18,7 @@ public class Main {
 
     private(set) lazy var user: String = {return Process.arguments[1]}()
     private(set) lazy var passwd: String = {return Process.arguments[2]}()
+    private(set) lazy var filename: String = {return Process.arguments[3]}()
     
     public static func run() {
         
@@ -35,13 +36,9 @@ public class Main {
 
             rpm.login(user: mainInst.user, passwd: mainInst.passwd)
             
-            let filename = Process.arguments[1]
-            let fileManager = NSFileManager.defaultManager()
+            let curPath = NSURL.fileURLWithPath(mainInst.filename)
             
-            let curPath = NSURL.fileURLWithPath(fileManager.currentDirectoryPath)
-            let filePath = curPath.URLByAppendingPathComponent(filename)
-            
-            print ("Uploading file: \(filePath)")
+            print ("Uploading file: \(curPath)")
             
             rpm.awaitCompletion()
 
