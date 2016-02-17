@@ -10,42 +10,66 @@ import Foundation
 
 let numArgs = Process.arguments.count
 let progname = NSURL.fileURLWithPath(Process.arguments[0]).lastPathComponent
-let engineURL = "http://goliath.pvelocity.com"
 
-let rpm = RPMAPISession(hostURL: engineURL)
 
 public class Main {
-
-    private(set) lazy var user: String = {return Process.arguments[1]}()
-    private(set) lazy var passwd: String = {return Process.arguments[2]}()
-    private(set) lazy var filename: String = {return Process.arguments[3]}()
+    
+    private(set) lazy var engineURL: String = {return Process.arguments[1]}()
+    private(set) lazy var user: String = {return Process.arguments[2]}()
+    private(set) lazy var passwd: String = {return Process.arguments[3]}()
+    private(set) lazy var filename: String = {return Process.arguments[4]}()
     
     public static func run() {
-        
         let mainInst = Main();
+
+        let rpm = RPMAPISession(hostURL: mainInst.engineURL)
         
         switch numArgs {
             
-        case 3:
-            
-            rpm.login(user: mainInst.user, passwd: mainInst.passwd)
-            rpm.awaitCompletion()
-
-            
         case 4:
-
-            rpm.login(user: mainInst.user, passwd: mainInst.passwd)
             
-            let curPath = NSURL.fileURLWithPath(mainInst.filename)
-            
-            print ("Uploading file: \(curPath)")
-            
+            rpm.login(user: mainInst.user, passwd: mainInst.passwd,
+                handler: {
+                    (success, jsonObject) in
+                    
+                    if success {
+                        print ("login successfully")
+                        rpm.logout();
+                    }
+                }
+            )
             rpm.awaitCompletion()
+            
+        case 5:
 
+            rpm.login(user: mainInst.user, passwd: mainInst.passwd,
+                handler: {
+                    (success, jsonObject) in
+                    
+                    if success {
+
+                        let request = rpm.createUploadFileRequest(filePath: mainInst.filename, persistent: true)
+                        rpm.sendRequest(request!,
+                            successHandler: {(jsonObject) -> Void in
+                                print("file uploaded successfully: \(jsonObject)")
+                                
+                                rpm.logout()
+                            },
+                            failHandler:  {(error, response) -> Void in
+                                print("Upload failed")
+                                print("original response: \(response)")
+                                
+                                rpm.logout()
+                        })
+
+                    }
+                    
+            })
+            rpm.awaitCompletion()
             
         default:
             
-            print ("Usage \(progname!): user password [filename]")
+            print ("Usage \(progname!): host_url user password [filename]")
             
         }
         

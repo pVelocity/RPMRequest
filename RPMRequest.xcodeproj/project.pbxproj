@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A532D3151C52D81A0002E442 /* RPMAPISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A532D3141C52D81A0002E442 /* RPMAPISession.swift */; };
 		A5B43A5A1C513D45009F9BCE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B43A591C513D45009F9BCE /* main.swift */; };
+		A5C9FBC31C73D40D006B4FD1 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C9FBC21C73D40D006B4FD1 /* Crypto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,9 @@
 /* Begin PBXFileReference section */
 		A532D3141C52D81A0002E442 /* RPMAPISession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RPMAPISession.swift; path = RPMRequest/RPMAPISession.swift; sourceTree = "<group>"; };
 		A5B43A591C513D45009F9BCE /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = RPMRequest/main.swift; sourceTree = "<group>"; };
+		A5C9FBBE1C73D263006B4FD1 /* RPMRequest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RPMRequest-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5C9FBBF1C73D29F006B4FD1 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
+		A5C9FBC21C73D40D006B4FD1 /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		A5DC176C1C50345600DE2AF4 /* RPMRequest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RPMRequest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -45,6 +49,8 @@
 			children = (
 				A5B43A591C513D45009F9BCE /* main.swift */,
 				A532D3141C52D81A0002E442 /* RPMAPISession.swift */,
+				A5C9FBBE1C73D263006B4FD1 /* RPMRequest-Bridging-Header.h */,
+				A5C9FBC21C73D40D006B4FD1 /* Crypto.swift */,
 			);
 			name = RPMRequest;
 			sourceTree = "<group>";
@@ -52,6 +58,7 @@
 		A5DC17631C50345600DE2AF4 = {
 			isa = PBXGroup;
 			children = (
+				A5C9FBBF1C73D29F006B4FD1 /* libcommonCrypto.tbd */,
 				A5B43A5B1C513D66009F9BCE /* RPMRequest */,
 				A5DC176D1C50345600DE2AF4 /* Products */,
 			);
@@ -122,6 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C9FBC31C73D40D006B4FD1 /* Crypto.swift in Sources */,
 				A532D3151C52D81A0002E442 /* RPMAPISession.swift in Sources */,
 				A5B43A5A1C513D45009F9BCE /* main.swift in Sources */,
 			);
@@ -170,6 +178,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "RPMRequest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -207,12 +216,17 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "RPMRequest-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		A5DC17741C50345600DE2AF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = RPMRequest;
 			};
 			name = Debug;
@@ -220,6 +234,10 @@
 		A5DC17751C50345600DE2AF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = RPMRequest;
 			};
 			name = Release;
